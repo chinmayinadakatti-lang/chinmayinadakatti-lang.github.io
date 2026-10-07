@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Chinmayi Ravikumar Nadakatti, a 3rd semester CSE-B student at REVA University.">
+  <title>Chinmayi Ravikumar Nadakatti | Portfolio</title>
+  <style>
+    :root {
+      --navy: #081a33;
+      --navy-2: #0d2748;
+      --blue: #2f80ed;
+      --blue-light: #eaf3ff;
+      --white: #ffffff;
+      --text: #1c2b3a;
+      --muted: #607086;
+      --border: #dce5ef;
+      --bg: #f6f9fc;
+      --shadow: 0 10px 30px rgba(8, 26, 51, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--white);
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .2px;
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #dce9f7;
+      font-size: .92rem;
+      transition: color .2s ease;
+    }
+
+    nav a:hover { color: var(--white); }
+
+    .hero {
+      flex: 1;
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 100px;
+    }
+
+    .hero-content { max-width: 800px; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      color: #dce9f7;
+      font-size: .82rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #c8d8e9;
+      font-size: 1.08rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 28px;
+      color: #e5eef8;
+      font-size: .92rem;
+    }
+
+    .hero-meta span::before {
+      content: "•";
+      color: #7fb5f7;
+      margin-right: 8px;
+    }
+
+    section { padding: 82px 0; }
+
+    section:nth-of-type(even) { background: var(--white); }
+
+    .section-heading {
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-grid .card:last-child {
+      background: var(--blue-light);
+      border-color: #cfe2fb;
+      box-shadow: none;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    .goal {
+      font-size: .96rem;
+      color: var(--text);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      margin-top: 18px;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    .problem-list {
+      margin: 14px 0 0 19px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 15px;
+      color: var(--navy);
+      font-size: .9rem;
+      font-weight: 650;
+      box-shadow: 0 5px 15px rgba(8,26,51,.04);
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-card h2 { margin-bottom: 10px; }
+
+    .contact-card p {
+      color: #c8d8e9;
+      max-width: 600px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 10px;
+      padding: 11px 14px;
+      color: #eef6ff;
+      font-size: .9rem;
+      word-break: break-word;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .contact-links a:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.38);
+    }
+
+    footer {
+      background: var(--navy);
+      color: #9fb2c8;
+      text-align: center;
+      padding: 24px 18px;
+      font-size: .84rem;
+    }
+
+    @media (max-width: 760px) {
+      header { min-height: auto; }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav ul {
+        gap: 12px 17px;
+        justify-content: flex-start;
+      }
+
+      .hero { padding: 65px 0 80px; }
+
+      .about-grid,
+      .projects,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      section { padding: 62px 0; }
+
+      .contact-card { padding: 27px; }
+    }
+
+    @media (max-width: 430px) {
+      .container,
+      nav,
+      .hero {
+        width: min(100% - 26px, 1080px);
+      }
+
+      h1 { letter-spacing: -1.2px; }
+
+      .hero p { font-size: 1rem; }
+
+      .card { padding: 21px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home">Chinmayi Nadakatti</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Student Portfolio</span>
+        <h1>Chinmayi Ravikumar Nadakatti</h1>
+        <p>
+          3rd semester Computer Science and Engineering student at REVA University,
+          interested in software development, programming, problem solving, and
+          learning new technologies.
+        </p>
+        <div class="hero-meta">
+          <span>R25EQ017</span>
+          <span>CSE-B</span>
+          <span>REVA University</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Who I am</h3>
+            <p>
+              I am a 3rd semester Computer Science and Engineering student at REVA University. I am interested in software development, programming,
+              problem solving, and learning new technologies.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Career Goal</h3>
+            <p class="goal">
+              My goal is to strengthen my programming, Data Structures and Algorithms,
+              and software development skills, build practical projects, improve my
+              GitHub portfolio, and prepare for software development internships.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Learning Activities</h2>
+          <p>Selected learning activities completed as part of my current development journey.</p>
+        </div>
+
+        <div class="projects">
+          <article class="card project-card">
+            <div class="project-number">Activity 01</div>
+            <h3>C/C++ Development Environment</h3>
+            <p>
+              Set up a C/C++ development environment using Visual Studio Code,
+              Microsoft C/C++ extension, and MSYS2 MinGW-w64. Configured GCC,
+              compiled a Hello World C program, and verified the output.
+            </p>
+            <a class="project-link"
+               href="https://github.com/chinmayinadakatti-lang/C-Activity-1"
+               target="_blank" rel="noopener noreferrer">
+              GitHub Repository ↗
+            </a>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">Activity 02</div>
+            <h3>VS Code Extensions Tour</h3>
+            <p>
+              Explored and used Python, Python Debugger, Java Extension Pack, Prettier, GitLens, and Live Share in Visual Studio Code.
+            </p>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">Activity 03</div>
+            <h3>Collaborative Coding</h3>
+            <p>
+              Completed a C programming task using GitLens and Live Share for collaboration, with Git and GitHub used to track changes and commits.
+            </p>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">Activity 04</div>
+            <h3>LeetCode Problem Solving</h3>
+            <p>Created a GitHub repository to document my LeetCode practice.</p>
+            <ol class="problem-list">
+              <li>Two Sum</li>
+              <li>Reverse String</li>
+              <li>Valid Anagram</li>
+              <li>Best Time to Buy and Sell Stock</li>
+              <li>Contains Duplicate</li>
+              <li>Valid Palindrome</li>
+              <li>Maximum Subarray</li>
+            </ol>
+            <a class="project-link"
+               href="https://github.com/chinmayinadakatti-lang/leetcode-solutions"
+               target="_blank" rel="noopener noreferrer">
+              GitHub Repository ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="skills-wrap">
+          <span class="skill">C</span>
+          <span class="skill">C++</span>
+          <span class="skill">Python</span>
+          <span class="skill">Java</span>
+          <span class="skill">Data Structures and Algorithms</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">Visual Studio Code</span>
+          <span class="skill">Basic Problem Solving</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <h2>Contact</h2>
+          </div>
+
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/chinmayi-ravikumar-nadakatti/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+            <a href="https://github.com/chinmayinadakatti-lang/C-Activity-1"
+               target="_blank" rel="noopener noreferrer">
+              C Activity GitHub ↗
+            </a>
+            <a href="https://github.com/chinmayinadakatti-lang/leetcode-solutions"
+               target="_blank" rel="noopener noreferrer">
+              LeetCode Solutions GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Chinmayi Ravikumar Nadakatti · R25EQ017 · CSE-B · REVA University
+  </footer>
+
+</body>
+</html>
